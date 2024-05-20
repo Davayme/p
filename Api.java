@@ -1,5 +1,3 @@
-package com.mycompany.mavenproject;
-
 
 import java.util.List;
 import com.google.gson.Gson;
