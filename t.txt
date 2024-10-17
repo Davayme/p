@@ -1,0 +1,55 @@
+@Test
+    public void testCifrarDesplazamientoPositivo() {
+        
+        String textoOriginal = "Hola";
+        int desplazamiento = 3;
+        String resultadoEsperado = "Krod";  
+        
+        String resultado = CifradoCesar.cifrar(textoOriginal, desplazamiento);
+        
+        assertEquals(resultadoEsperado, resultado);
+    }
+
+    @Test
+    public void testCifrarDesplazamientoNegativo() {
+       
+        String textoOriginal = "Hola";
+        int desplazamiento = -1;
+        String resultadoEsperado = "Gnkz";
+        
+        String resultado = CifradoCesar.cifrar(textoOriginal, desplazamiento);
+        
+        assertEquals(resultadoEsperado, resultado);
+    }
+
+    @Test
+    public void testCifrarConEspacios() {
+       
+        String textoOriginal = "Hola Mundo";
+        int desplazamiento = 2;
+        String resultadoEsperado = "Jqnc Owpfq"; 
+        
+        String resultado = CifradoCesar.cifrar(textoOriginal, desplazamiento);
+        
+        assertEquals(resultadoEsperado, resultado);
+    }
+
+    @Test
+    public void testCifrarConTildes() {
+       
+        String textoOriginal = "áéíóú";
+        int desplazamiento = 3;
+        String resultadoEsperado = "áéíóú";  
+        
+        String resultado = CifradoCesar.cifrar(textoOriginal, desplazamiento);
+        
+        assertEquals(resultadoEsperado, resultado);
+    }
+
+    @Test
+    public void testCifrarConCaracteresInvalidosLanzaExcepcion() {
+       
+        String textoOriginal = "Hola123!";
+        
+        assertThrows(IllegalArgumentException.class, () -> CifradoCesar.cifrar(textoOriginal, 3));
+    }
